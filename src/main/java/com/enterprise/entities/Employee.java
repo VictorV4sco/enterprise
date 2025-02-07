@@ -17,7 +17,7 @@ public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idEmployee;
 	
 	@Column
 	private String name;
@@ -32,7 +32,7 @@ public class Employee {
 	private String dismissalDate;
 	
 	@ManyToOne
-	@JoinColumn(name = "job_position_id")
+	@JoinColumn(name = "idJobPosition")
 	private JobPosition jobPosition;
 	
 	@Column
@@ -53,10 +53,10 @@ public class Employee {
 	public Employee() {
 	}
 
-	public Employee(Long id, String name, Double salary, String hiredDate, String dismissalDate,
+	public Employee(Long idEmployee, String name, Double salary, String hiredDate, String dismissalDate,
 			JobPosition jobPosition, String state, String city, String neiborhood, String address, Long zipCode) {
 		super();
-		this.id = id;
+		this.idEmployee = idEmployee;
 		this.name = name;
 		this.salary = salary;
 		this.hiredDate = hiredDate;
@@ -69,12 +69,12 @@ public class Employee {
 		this.zipCode = zipCode;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getIdEmployee() {
+		return idEmployee;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdEmployee(Long idEmployee) {
+		this.idEmployee = idEmployee;
 	}
 
 	public String getName() {
@@ -159,8 +159,8 @@ public class Employee {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(address, city, dismissalDate, hiredDate, id, jobPosition, name, neiborhood, salary, state,
-				zipCode);
+		return Objects.hash(address, city, dismissalDate, hiredDate, idEmployee, jobPosition, name, neiborhood, salary,
+				state, zipCode);
 	}
 
 	@Override
@@ -174,7 +174,7 @@ public class Employee {
 		Employee other = (Employee) obj;
 		return Objects.equals(address, other.address) && Objects.equals(city, other.city)
 				&& Objects.equals(dismissalDate, other.dismissalDate) && Objects.equals(hiredDate, other.hiredDate)
-				&& Objects.equals(id, other.id) && Objects.equals(jobPosition, other.jobPosition)
+				&& Objects.equals(idEmployee, other.idEmployee) && Objects.equals(jobPosition, other.jobPosition)
 				&& Objects.equals(name, other.name) && Objects.equals(neiborhood, other.neiborhood)
 				&& Objects.equals(salary, other.salary) && Objects.equals(state, other.state)
 				&& Objects.equals(zipCode, other.zipCode);
