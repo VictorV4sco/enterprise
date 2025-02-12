@@ -1,7 +1,5 @@
 package com.enterprise.entities;
 
-import java.util.Objects;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -155,29 +153,6 @@ public class Employee {
 
 	public void setZipCode(Long zipCode) {
 		this.zipCode = zipCode;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(address, city, dismissalDate, hiredDate, idEmployee, jobPosition, name, neiborhood, salary,
-				state, zipCode);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Employee other = (Employee) obj;
-		return Objects.equals(address, other.address) && Objects.equals(city, other.city)
-				&& Objects.equals(dismissalDate, other.dismissalDate) && Objects.equals(hiredDate, other.hiredDate)
-				&& Objects.equals(idEmployee, other.idEmployee) && Objects.equals(jobPosition, other.jobPosition)
-				&& Objects.equals(name, other.name) && Objects.equals(neiborhood, other.neiborhood)
-				&& Objects.equals(salary, other.salary) && Objects.equals(state, other.state)
-				&& Objects.equals(zipCode, other.zipCode);
 	}
 
 	

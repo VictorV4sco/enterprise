@@ -1,8 +1,9 @@
 package com.enterprise.entities;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -14,6 +15,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table
+@JsonIncludeProperties({"idJobPosition"})
 public class JobPosition {
 
 	@Id
@@ -23,12 +25,12 @@ public class JobPosition {
 	private String name;
 	
 	@OneToMany(mappedBy = "jobPosition", cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<Employee> employees = new HashSet<>();
+	private List<Employee> employees = new ArrayList<>();
 	
 	public JobPosition() {
 	}
 
-	public JobPosition(Long idJobPosition, String name, Set<Employee> employees) {
+	public JobPosition(Long idJobPosition, String name, List<Employee> employees) {
 		super();
 		this.idJobPosition = idJobPosition;
 		this.name = name;
@@ -51,31 +53,13 @@ public class JobPosition {
 		this.name = name;
 	}
 
-	public Set<Employee> getEmployees() {
+	public List<Employee> getEmployees() {
 		return employees;
 	}
 
-	public void setEmployees(Set<Employee> employees) {
+	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(employees, idJobPosition, name);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		JobPosition other = (JobPosition) obj;
-		return Objects.equals(employees, other.employees) && Objects.equals(idJobPosition, other.idJobPosition)
-				&& Objects.equals(name, other.name);
-	}
-
-		
+	
+	
 }
