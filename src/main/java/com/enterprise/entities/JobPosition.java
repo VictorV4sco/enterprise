@@ -1,7 +1,7 @@
 package com.enterprise.entities;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
@@ -25,14 +25,16 @@ public class JobPosition {
 	private String name;
 	
 	@OneToMany(mappedBy = "jobPosition", cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<Employee> employees = new HashSet<>();
+	private List<Employee> employees = new ArrayList<>();
 	
 	public JobPosition() {
 	}
 
-	public JobPosition(Long idJobPosition, String name) {
+	public JobPosition(Long idJobPosition, String name, List<Employee> employees) {
+		super();
 		this.idJobPosition = idJobPosition;
 		this.name = name;
+		this.employees = employees;
 	}
 
 	public Long getIdJobPosition() {
@@ -51,13 +53,12 @@ public class JobPosition {
 		this.name = name;
 	}
 
-	public Set<Employee> getEmployees() {
+	public List<Employee> getEmployees() {
 		return employees;
 	}
 
-	public void setEmployees(Set<Employee> employees) {
+	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
-	
-	
+
 }

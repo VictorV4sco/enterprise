@@ -25,10 +25,12 @@ public class EmployeeService {
 		Employee employee = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
 		return new 
 				EmployeeDTO(
-						employee.getIdEmployee(),
+						employee.getId_employee(),
 						employee.getName(),
+						employee.getStatus(),
 						employee.getSalary(),
-						employee.getHiredDate(), 
+						employee.getHired_date(),
+						employee.getDissmissial_date(),
 						employee.getJobPosition(), 
 						employee.getState(),
 						employee.getCity(),
@@ -41,7 +43,7 @@ public class EmployeeService {
 	public List<AllEmployeesDTO> findAllEmployees() {
 		
 		List<Employee> employees = repository.findAll();
-		return employees.stream().map(employee -> new AllEmployeesDTO(employee.getIdEmployee(), employee.getName(),
-				employee.getHiredDate(), employee.getJobPosition())).collect(Collectors.toList());
+		return employees.stream().map(employee -> new AllEmployeesDTO(employee.getId_employee(), employee.getName(),
+				employee.getStatus(), employee.getHired_date(), employee.getDissmissial_date() ,employee.getJobPosition())).collect(Collectors.toList());
 	}
 }

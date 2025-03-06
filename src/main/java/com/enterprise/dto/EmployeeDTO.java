@@ -1,5 +1,8 @@
 package com.enterprise.dto;
 
+import java.time.LocalDate;
+
+import com.enterprise.entities.EmployeeStatus;
 import com.enterprise.entities.JobPosition;
 
 import jakarta.validation.constraints.NotBlank;
@@ -11,15 +14,19 @@ public record EmployeeDTO(
 		@NotBlank(message = "Campo requer preenchimento")
 		String name, 
 		
+		EmployeeStatus status,
+		
 		@Positive
 		@NotNull
 		Double salary, 
 		
 		@NotBlank(message = "Campo requer preenchimento")
-		String hiredDate, 
+		LocalDate hired_date, 
+		
+		String dissmissial_date,
 		
 		@NotBlank(message = "Campo requer preenchimento")
-		JobPosition jobPosition, 
+		JobPosition job_position, 
 		String state, 
 		String city, 
 		String neiborhood, 

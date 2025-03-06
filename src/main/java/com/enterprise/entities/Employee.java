@@ -1,5 +1,7 @@
 package com.enterprise.entities;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +17,10 @@ public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idEmployee;
+	private Long id_employee;
+	
+	@Column
+	private EmployeeStatus status;
 	
 	@Column
 	private String name;
@@ -23,10 +28,11 @@ public class Employee {
 	@Column
 	private Double salary;
 	
-	@Column(name = "hired_date")
-	private String hiredDate;
+	@Column
+	private LocalDate hired_date;
 	
-	
+	@Column
+	private String dissmissial_date;
 	
 	@ManyToOne
 	@JoinColumn(name = "idJobPosition")
@@ -50,12 +56,15 @@ public class Employee {
 	public Employee() {
 	}
 
-	public Employee(Long idEmployee, String name, Double salary, String hiredDate,
-			JobPosition jobPosition, String state, String city, String neiborhood, String address, Long zipCode) {
-		this.idEmployee = idEmployee;
+	public Employee(Long id_employee, EmployeeStatus status, String name, Double salary, LocalDate hired_date,
+			String dissmissial_date, JobPosition jobPosition, String state, String city, String neiborhood,
+			String address, Long zipCode) {
+		this.id_employee = id_employee;
+		this.status = status;
 		this.name = name;
 		this.salary = salary;
-		this.hiredDate = hiredDate;
+		this.hired_date = hired_date;
+		this.dissmissial_date = dissmissial_date;
 		this.jobPosition = jobPosition;
 		this.state = state;
 		this.city = city;
@@ -64,12 +73,20 @@ public class Employee {
 		this.zipCode = zipCode;
 	}
 
-	public Long getIdEmployee() {
-		return idEmployee;
+	public Long getId_employee() {
+		return id_employee;
 	}
 
-	public void setIdEmployee(Long idEmployee) {
-		this.idEmployee = idEmployee;
+	public void setId_employee(Long id_employee) {
+		this.id_employee = id_employee;
+	}
+
+	public EmployeeStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(EmployeeStatus status) {
+		this.status = status;
 	}
 
 	public String getName() {
@@ -88,12 +105,20 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public String getHiredDate() {
-		return hiredDate;
+	public LocalDate getHired_date() {
+		return hired_date;
 	}
 
-	public void setHiredDate(String hiredDate) {
-		this.hiredDate = hiredDate;
+	public void setHired_date(LocalDate hired_date) {
+		this.hired_date = hired_date;
+	}
+
+	public String getDissmissial_date() {
+		return dissmissial_date;
+	}
+
+	public void setDissmissial_date(String dissmissial_date) {
+		this.dissmissial_date = dissmissial_date;
 	}
 
 	public JobPosition getJobPosition() {
