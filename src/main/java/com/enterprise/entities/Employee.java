@@ -26,8 +26,7 @@ public class Employee {
 	@Column(name = "hired_date")
 	private String hiredDate;
 	
-	@Column(name = "dismissal_date")
-	private String dismissalDate;
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "idJobPosition")
@@ -51,14 +50,12 @@ public class Employee {
 	public Employee() {
 	}
 
-	public Employee(Long idEmployee, String name, Double salary, String hiredDate, String dismissalDate,
+	public Employee(Long idEmployee, String name, Double salary, String hiredDate,
 			JobPosition jobPosition, String state, String city, String neiborhood, String address, Long zipCode) {
-		super();
 		this.idEmployee = idEmployee;
 		this.name = name;
 		this.salary = salary;
 		this.hiredDate = hiredDate;
-		this.dismissalDate = dismissalDate;
 		this.jobPosition = jobPosition;
 		this.state = state;
 		this.city = city;
@@ -97,14 +94,6 @@ public class Employee {
 
 	public void setHiredDate(String hiredDate) {
 		this.hiredDate = hiredDate;
-	}
-
-	public String getDismissalDate() {
-		return dismissalDate;
-	}
-
-	public void setDismissalDate(String dismissalDate) {
-		this.dismissalDate = dismissalDate;
 	}
 
 	public JobPosition getJobPosition() {
@@ -155,5 +144,4 @@ public class Employee {
 		this.zipCode = zipCode;
 	}
 
-	
 }	

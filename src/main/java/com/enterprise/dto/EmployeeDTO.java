@@ -17,7 +17,6 @@ public record EmployeeDTO(
 		
 		@NotBlank(message = "Campo requer preenchimento")
 		String hiredDate, 
-		String dismissalDate,
 		
 		@NotBlank(message = "Campo requer preenchimento")
 		JobPosition jobPosition, 

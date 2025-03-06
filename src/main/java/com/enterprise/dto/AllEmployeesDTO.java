@@ -6,6 +6,5 @@ public record AllEmployeesDTO(
 		Long id, 
 		String name,  
 		String hiredDate, 
-		String dismissalDate,
 		JobPosition jobPosition 
 		) {}

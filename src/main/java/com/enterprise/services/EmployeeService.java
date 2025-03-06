@@ -29,7 +29,6 @@ public class EmployeeService {
 						employee.getName(),
 						employee.getSalary(),
 						employee.getHiredDate(), 
-						employee.getDismissalDate(), 
 						employee.getJobPosition(), 
 						employee.getState(),
 						employee.getCity(),
@@ -43,6 +42,6 @@ public class EmployeeService {
 		
 		List<Employee> employees = repository.findAll();
 		return employees.stream().map(employee -> new AllEmployeesDTO(employee.getIdEmployee(), employee.getName(),
-				employee.getHiredDate(), employee.getDismissalDate(), employee.getJobPosition())).collect(Collectors.toList());
+				employee.getHiredDate(), employee.getJobPosition())).collect(Collectors.toList());
 	}
 }
