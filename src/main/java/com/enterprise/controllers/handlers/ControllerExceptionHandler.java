@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.enterprise.dto.CustomError;
 import com.enterprise.dto.ValidationError;
-import com.enterprise.exceptions.DatabaseException;
-import com.enterprise.exceptions.ResourceNotFoundException;
+import com.enterprise.services.exceptions.DatabaseException;
+import com.enterprise.services.exceptions.ResourceNotFoundException;
 
 import jakarta.servlet.http.HttpServletRequest;
 
