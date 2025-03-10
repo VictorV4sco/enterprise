@@ -34,7 +34,7 @@ public class EmployeeService {
 						employee.getJobPosition(), 
 						employee.getState(),
 						employee.getCity(),
-						employee.getNeiborhood(), 
+						employee.getNeighborhood(), 
 						employee.getAddress(), 
 						employee.getZipCode()
 							);
@@ -59,7 +59,7 @@ public class EmployeeService {
 		employee.setJobPosition(dto.job_position());
 		employee.setState(dto.state());
 		employee.setCity(dto.city());
-		employee.setNeiborhood(dto.neiborhood());
+		employee.setNeighborhood(dto.neighborhood());
 		employee.setAddress(dto.address());
 		employee.setZipCode(dto.zipCode());
 		
@@ -75,7 +75,7 @@ public class EmployeeService {
 				save.getJobPosition(), 
 				save.getState(), 
 				save.getCity(), 
-				save.getNeiborhood(), 
+				save.getNeighborhood(), 
 				save.getAddress(), 
 				save.getZipCode()
 				);

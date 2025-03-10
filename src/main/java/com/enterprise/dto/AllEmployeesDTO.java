@@ -10,6 +10,6 @@ public record AllEmployeesDTO(
 		String name,
 		EmployeeStatus status,
 		LocalDate hiredDate, 
-		String dissmissialDate,
+		LocalDate dissmissialDate,
 		JobPosition jobPosition 
 		) {}

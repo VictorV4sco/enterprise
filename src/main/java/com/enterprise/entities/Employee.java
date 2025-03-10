@@ -32,7 +32,7 @@ public class Employee {
 	private LocalDate hired_date;
 	
 	@Column
-	private String dissmissial_date;
+	private LocalDate dissmissial_date;
 	
 	@ManyToOne
 	@JoinColumn(name = "idJobPosition")
@@ -45,7 +45,7 @@ public class Employee {
 	private String city;
 	
 	@Column
-	private String neiborhood;
+	private String neighborhood;
 	
 	@Column
 	private String address;
@@ -57,7 +57,7 @@ public class Employee {
 	}
 
 	public Employee(Long id_employee, EmployeeStatus status, String name, Double salary, LocalDate hired_date,
-			String dissmissial_date, JobPosition jobPosition, String state, String city, String neiborhood,
+			LocalDate dissmissial_date, JobPosition jobPosition, String state, String city, String neighborhood,
 			String address, Long zipCode) {
 		this.id_employee = id_employee;
 		this.status = status;
@@ -68,7 +68,7 @@ public class Employee {
 		this.jobPosition = jobPosition;
 		this.state = state;
 		this.city = city;
-		this.neiborhood = neiborhood;
+		this.neighborhood = neighborhood;
 		this.address = address;
 		this.zipCode = zipCode;
 	}
@@ -113,11 +113,11 @@ public class Employee {
 		this.hired_date = hired_date;
 	}
 
-	public String getDissmissial_date() {
+	public LocalDate getDissmissial_date() {
 		return dissmissial_date;
 	}
 
-	public void setDissmissial_date(String dissmissial_date) {
+	public void setDissmissial_date(LocalDate dissmissial_date) {
 		this.dissmissial_date = dissmissial_date;
 	}
 
@@ -145,12 +145,12 @@ public class Employee {
 		this.city = city;
 	}
 
-	public String getNeiborhood() {
-		return neiborhood;
+	public String getNeighborhood() {
+		return neighborhood;
 	}
 
-	public void setNeiborhood(String neiborhood) {
-		this.neiborhood = neiborhood;
+	public void setNeighborhood(String neiborhood) {
+		this.neighborhood = neiborhood;
 	}
 
 	public String getAddress() {

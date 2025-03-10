@@ -3,16 +3,16 @@ package com.enterprise.dto;
 //Classe para as mensagens de reposta da requisição com erro de validação
 public class FieldMessage {
 
-	private String name;
+	private String fieldName;
 	private String message;
 	
-	public FieldMessage(String name, String message) {
-		this.name = name;
+	public FieldMessage(String fieldName, String message) {
+		this.fieldName = fieldName;
 		this.message = message;
 	}
 
-	public String getName() {
-		return name;
+	public String getFieldName() {
+		return fieldName;
 	}
 
 	public String getMessage() {
