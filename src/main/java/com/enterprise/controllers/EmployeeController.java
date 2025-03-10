@@ -16,6 +16,8 @@ import com.enterprise.dto.AllEmployeesDTO;
 import com.enterprise.dto.EmployeeDTO;
 import com.enterprise.services.EmployeeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/employees")
 public class EmployeeController {
@@ -34,7 +36,7 @@ public class EmployeeController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<EmployeeDTO> createEmployee(@RequestBody EmployeeDTO dto) {
+	public ResponseEntity<EmployeeDTO> createEmployee(@Valid @RequestBody EmployeeDTO dto) {
 		return new ResponseEntity<>(service.insertEmployee(dto), HttpStatus.CREATED);
 	}
 }
