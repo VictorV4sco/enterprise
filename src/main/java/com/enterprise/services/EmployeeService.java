@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,11 +42,14 @@ public class EmployeeService {
 							);
 	}
 	
-	public List<AllEmployeesDTO> findAllEmployees() {
+	public Page<AllEmployeesDTO> findAllEmployees(Pageable pageable) {
 		
-		List<Employee> employees = repository.findAll();
-		return employees.stream().map(employee -> new AllEmployeesDTO(employee.getId_employee(), employee.getName(),
-				employee.getStatus(), employee.getHired_date(), employee.getDissmissial_date() ,employee.getJobPosition())).collect(Collectors.toList());
+//		List<Employee> employees = repository.findAll();
+//		return employees.stream().map(employee -> new AllEmployeesDTO(employee.getId_employee(), employee.getName(),
+//				employee.getStatus(), employee.getHired_date(), employee.getDissmissial_date() ,employee.getJobPosition())).collect(Collectors.toList());
+		Page<Employee> employees = repository.findAll(pageable);
+		return employees.map(employee -> new AllEmployeesDTO(employee.getId_employee(), employee.getName(),
+				employee.getStatus(), employee.getHired_date(), employee.getDissmissial_date() ,employee.getJobPosition()));
 	}
 	
 	@Transactional
