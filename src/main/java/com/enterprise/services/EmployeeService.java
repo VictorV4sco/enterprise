@@ -46,4 +46,39 @@ public class EmployeeService {
 		return employees.stream().map(employee -> new AllEmployeesDTO(employee.getId_employee(), employee.getName(),
 				employee.getStatus(), employee.getHired_date(), employee.getDissmissial_date() ,employee.getJobPosition())).collect(Collectors.toList());
 	}
+	
+	@Transactional
+	public EmployeeDTO insertEmployee(EmployeeDTO dto) {
+		Employee employee = new Employee();
+
+		employee.setName(dto.name());
+		employee.setStatus(dto.status());
+		employee.setSalary(dto.salary());
+		employee.setHired_date(dto.hired_date());
+		employee.setDissmissial_date(dto.dissmissial_date());
+		employee.setJobPosition(dto.job_position());
+		employee.setState(dto.state());
+		employee.setCity(dto.city());
+		employee.setNeiborhood(dto.neiborhood());
+		employee.setAddress(dto.address());
+		employee.setZipCode(dto.zipCode());
+		
+		Employee save = repository.save(employee);
+		
+		return new EmployeeDTO(
+				save.getId_employee(), 
+				save.getName(), 
+				save.getStatus(), 
+				save.getSalary(), 
+				save.getHired_date(), 
+				save.getDissmissial_date(), 
+				save.getJobPosition(), 
+				save.getState(), 
+				save.getCity(), 
+				save.getNeiborhood(), 
+				save.getAddress(), 
+				save.getZipCode()
+				);
+	}
+	
 }
