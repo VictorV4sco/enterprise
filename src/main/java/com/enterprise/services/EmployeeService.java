@@ -39,11 +39,8 @@ public class EmployeeService {
 							);
 	}
 	
+	@Transactional(readOnly = true)
 	public Page<AllEmployeesDTO> findAllEmployees(Pageable pageable) {
-		
-//		List<Employee> employees = repository.findAll();
-//		return employees.stream().map(employee -> new AllEmployeesDTO(employee.getId_employee(), employee.getName(),
-//				employee.getStatus(), employee.getHired_date(), employee.getDissmissial_date() ,employee.getJobPosition())).collect(Collectors.toList());
 		Page<Employee> employees = repository.findAll(pageable);
 		return employees.map(employee -> new AllEmployeesDTO(employee.getId_employee(), employee.getName(),
 				employee.getStatus(), employee.getHired_date(), employee.getDissmissial_date() ,employee.getJobPosition()));
@@ -81,6 +78,40 @@ public class EmployeeService {
 				save.getAddress(), 
 				save.getZipCode()
 				);
+	}
+	
+	public EmployeeDTO updateEmployee(Long id, EmployeeDTO dto) {
+			Employee employee = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
+			
+			employee.setName(dto.name());
+			employee.setStatus(dto.status());
+			employee.setSalary(dto.salary());
+			employee.setHired_date(dto.hired_date());
+			employee.setDissmissial_date(dto.dissmissial_date());
+			employee.setJobPosition(dto.job_position());
+			employee.setState(dto.state());
+			employee.setCity(dto.city());
+			employee.setNeighborhood(dto.neighborhood());
+			employee.setAddress(dto.address());
+			employee.setZipCode(dto.zipCode());
+			
+			Employee save = repository.save(employee);
+			
+			return new EmployeeDTO(
+					save.getId_employee(), 
+					save.getName(), 
+					save.getStatus(), 
+					save.getSalary(), 
+					save.getHired_date(), 
+					save.getDissmissial_date(), 
+					save.getJobPosition(), 
+					save.getState(), 
+					save.getCity(), 
+					save.getNeighborhood(), 
+					save.getAddress(), 
+					save.getZipCode()
+					);
+		
 	}
 	
 }
