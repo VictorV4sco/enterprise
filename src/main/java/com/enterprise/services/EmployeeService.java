@@ -29,7 +29,7 @@ public class EmployeeService {
 						employee.getStatus(),
 						employee.getSalary(),
 						employee.getHired_date(),
-						employee.getDissmissial_date(),
+						employee.getDismissal_date(),
 						employee.getJobPosition(), 
 						employee.getState(),
 						employee.getCity(),
@@ -43,7 +43,7 @@ public class EmployeeService {
 	public Page<AllEmployeesDTO> findAllEmployees(Pageable pageable) {
 		Page<Employee> employees = repository.findAll(pageable);
 		return employees.map(employee -> new AllEmployeesDTO(employee.getId_employee(), employee.getName(),
-				employee.getStatus(), employee.getHired_date(), employee.getDissmissial_date() ,employee.getJobPosition()));
+				employee.getStatus(), employee.getHired_date(), employee.getDismissal_date() ,employee.getJobPosition()));
 	}
 	
 	@Transactional
@@ -54,7 +54,7 @@ public class EmployeeService {
 		employee.setStatus(dto.status());
 		employee.setSalary(dto.salary());
 		employee.setHired_date(dto.hired_date());
-		employee.setDissmissial_date(dto.dissmissial_date());
+		employee.setDismissal_date(dto.dismissal_date());
 		employee.setJobPosition(dto.job_position());
 		employee.setState(dto.state());
 		employee.setCity(dto.city());
@@ -70,7 +70,7 @@ public class EmployeeService {
 				save.getStatus(), 
 				save.getSalary(), 
 				save.getHired_date(), 
-				save.getDissmissial_date(), 
+				save.getDismissal_date(), 
 				save.getJobPosition(), 
 				save.getState(), 
 				save.getCity(), 
@@ -87,7 +87,7 @@ public class EmployeeService {
 			employee.setStatus(dto.status());
 			employee.setSalary(dto.salary());
 			employee.setHired_date(dto.hired_date());
-			employee.setDissmissial_date(dto.dissmissial_date());
+			employee.setDismissal_date(dto.dismissal_date());
 			employee.setJobPosition(dto.job_position());
 			employee.setState(dto.state());
 			employee.setCity(dto.city());
@@ -103,7 +103,7 @@ public class EmployeeService {
 					save.getStatus(), 
 					save.getSalary(), 
 					save.getHired_date(), 
-					save.getDissmissial_date(), 
+					save.getDismissal_date(), 
 					save.getJobPosition(), 
 					save.getState(), 
 					save.getCity(), 

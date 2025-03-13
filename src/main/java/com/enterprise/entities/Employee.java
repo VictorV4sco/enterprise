@@ -32,7 +32,7 @@ public class Employee {
 	private LocalDate hired_date;
 	
 	@Column
-	private LocalDate dissmissial_date;
+	private LocalDate dismissal_date;
 	
 	@ManyToOne
 	@JoinColumn(name = "idJobPosition")
@@ -57,14 +57,14 @@ public class Employee {
 	}
 
 	public Employee(Long id_employee, EmployeeStatus status, String name, Double salary, LocalDate hired_date,
-			LocalDate dissmissial_date, JobPosition jobPosition, String state, String city, String neighborhood,
+			LocalDate dismissal_date, JobPosition jobPosition, String state, String city, String neighborhood,
 			String address, Long zipCode) {
 		this.id_employee = id_employee;
 		this.status = status;
 		this.name = name;
 		this.salary = salary;
 		this.hired_date = hired_date;
-		this.dissmissial_date = dissmissial_date;
+		this.dismissal_date = dismissal_date;
 		this.jobPosition = jobPosition;
 		this.state = state;
 		this.city = city;
@@ -113,12 +113,12 @@ public class Employee {
 		this.hired_date = hired_date;
 	}
 
-	public LocalDate getDissmissial_date() {
-		return dissmissial_date;
+	public LocalDate getDismissal_date() {
+		return dismissal_date;
 	}
 
-	public void setDissmissial_date(LocalDate dissmissial_date) {
-		this.dissmissial_date = dissmissial_date;
+	public void setDismissal_date(LocalDate dissmissial_date) {
+		this.dismissal_date = dissmissial_date;
 	}
 
 	public JobPosition getJobPosition() {

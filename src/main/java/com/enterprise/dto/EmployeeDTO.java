@@ -29,7 +29,7 @@ public record EmployeeDTO(
 		LocalDate hired_date, 
 		
 		@PastOrPresent(message = "Data de desligamento não pode ser no futuro")
-		LocalDate dissmissial_date,
+		LocalDate dismissal_date,
 		
 		@NotNull(message = "Cargo é obrigatório")
 		@Valid
